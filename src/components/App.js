@@ -1,5 +1,5 @@
 import React from 'react';
-import Display from './Display'
+import VisibleDisplay from '../containers/VisibleDisplay'
 import NumPad from '../containers/NumPad'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -10,7 +10,7 @@ const App = () => {
         <Container>
             <Row>
                 <Col>
-                    <Display value="0"/>
+	            <VisibleDisplay />
                 </Col>
             </Row>
             <Row>

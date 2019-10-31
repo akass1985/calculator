@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux'
 
 const Display = ({value}) => {
   return (
@@ -8,4 +9,4 @@ const Display = ({value}) => {
   )
 }
 
-export default Display
+export default connect()(Display)
