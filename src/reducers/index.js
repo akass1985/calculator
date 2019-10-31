@@ -8,8 +8,18 @@ const initialValues = {
   result: 0
 }
 
+const calc = (operand1, operation, operand2) => {
+  switch (operation){
+    case '+': return operand1 + operand2;
+    case '-': return operand1 - operand2;
+    case '*': return operand1 * operand2;
+    case '/': return (operand2 == 0) ? 'Infinity' : (operand1 / operand2);
+    default: return 'NaN';
+  }
+}
+
 const data = (state = initialValues, action) => {
-  const calc = arr => eval(arr.join('')) || 0
+  
   switch(action.type){
 
     case ActionTypes.DIGIT: 
@@ -29,8 +39,11 @@ const data = (state = initialValues, action) => {
           };
 
         case OperationTypes.SUM:
+        case OperationTypes.SUB:
+        case OperationTypes.MULT:
+        case OperationTypes.DIV:
           return {...state,
-            result: parseFloat(state.result) + parseFloat(state.buffer),
+            result: calc(parseFloat(state.result), action.value, parseFloat(state.buffer)),
             buffer: "",
             log: state.log.concat([state.buffer, action.value]),
           }

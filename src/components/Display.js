@@ -6,10 +6,11 @@ const Display = () => {
 
   const result = useSelector(selectResult);
   const buffer = useSelector(selectBuffer);
+  const output = buffer ? buffer : result;
   
   return (
-      <div id="result">
-          {buffer ? buffer : result}
+      <div style={{ "backgroun-color": "red"}} id="result">
+          {output}
       </div>
   )
 }
