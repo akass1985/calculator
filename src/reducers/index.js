@@ -1,6 +1,11 @@
 import { combineReducers } from 'redux'
-import result from './operations'
+
+import buffer from './buffer'
+import result from './result'
+import operation from './operation'
 
 export default combineReducers({
-  result
+  buffer,
+  result,
+  operation
 })

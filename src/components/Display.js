@@ -1,14 +1,17 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
-import selectResult from '../selectors'
+import selectResult, { selectOperation } from '../selectors'
+import selectBuffer from '../selectors';
 
 const Display = () => {
 
-  const value = useSelector(selectResult);
+  const buffer = useSelector(selectBuffer);
+  const operation = useSelector(selectOperation);
+  const result = useSelector(selectResult);
   
   return (
         <div id="result">
-            {value}
+            {operation ? buffer : result}
         </div>
   )
 }
