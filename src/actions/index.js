@@ -1,14 +1,17 @@
 const ActionTypes = {
     DIGIT: "DIGIT",
     OPERATION: "OPERATION",
-    OP_AC: "AC",
-    OP_DEL_LAST: "<-",
-    OP_PERCENT: "%",
-    OP_MULT: "*",
-    OP_SUB: "-",
-    OP_SUM: "+",
-    OP_DIV: "/",
-    OP_RESULT: "="
+}
+
+export const OperationTypes = {
+    AC: "AC",
+    DEL_LAST: "<-",
+    PERCENT: "%",
+    MULT: "*",
+    SUB: "-",
+    SUM: "+",
+    DIV: "/",
+    RESULT: "="
 }
 
 export const digit = value => ({

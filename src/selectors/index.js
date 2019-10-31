@@ -1,5 +1,4 @@
-const selectBuffer = state => state.buffer;
-export const selectResult = state => state.result;
-export const selectOperation = state => state.operation;
+const selectResult = state => state.data.result || 0
+export const selectBuffer = state => state.data.buffer || ""
 
-export default selectBuffer;
+export default selectResult;

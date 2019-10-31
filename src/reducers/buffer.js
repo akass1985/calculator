@@ -1,18 +1,17 @@
-import ActionTypes from '../actions'
+import ActionTypes, { OperationTypes } from '../actions'
 
-const buffer = (state = 0, action) => {
+const buffer = (state = "0+", action) => {
     switch(action.type){
-        case ActionTypes.DIGIT: {
+        case ActionTypes.DIGIT: 
             return state + "" + action.value;
-        }
         case ActionTypes.OPERATION:
             switch (action.value){
-                case ActionTypes.OP_SUM:
-                case ActionTypes.OP_MULT:
-                case ActionTypes.OP_SUB:
-                case ActionTypes.OP_DIV:
+                case OperationTypes.SUM:
+                case OperationTypes.MULT:
+                case OperationTypes.SUB:
+                case OperationTypes.DIV:
                     return (eval(state) || "0") + action.value;
-                case ActionTypes.OP_RESULT:
+                case OperationTypes.RESULT:
                     return (eval(state) || "0")
             }
         default:

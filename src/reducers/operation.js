@@ -1,6 +1,6 @@
 import ActionTypes from '../actions'
 
-const result = (state = 0, action) => {
+const operation = (state = false, action) => {
     switch(action.type){
         case ActionTypes.DIGIT:
             return false
@@ -11,4 +11,4 @@ const result = (state = 0, action) => {
     }
 }
 
-export default result;
+export default operation;

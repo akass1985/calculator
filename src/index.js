@@ -10,12 +10,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const initialValues = { 
         buffer: "0+",
         result: "0",
-        operation: true
+        stack: false,
+        log: []
 };
 
 const store = createStore(
         rootReducer, 
-        initialValues,
+        // initialValues,
         window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 render(

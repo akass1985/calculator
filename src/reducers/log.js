@@ -1,6 +1,6 @@
 import ActionTypes from '../actions'
 
-const result = (state = "", action) => {
+const log = (state = "", action) => {
     switch(action.type){
         case ActionTypes.DIGIT:
             return state + "" + action.value
@@ -11,4 +11,4 @@ const result = (state = "", action) => {
     }
 }
 
-export default result;
+export default log;

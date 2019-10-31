@@ -1,18 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux'
-import selectResult, { selectOperation } from '../selectors'
-import selectBuffer from '../selectors';
+import selectResult, { selectBuffer } from '../selectors'
 
 const Display = () => {
 
-  const buffer = useSelector(selectBuffer);
-  const operation = useSelector(selectOperation);
   const result = useSelector(selectResult);
+  const buffer = useSelector(selectBuffer);
   
   return (
-        <div id="result">
-            {operation ? buffer : result}
-        </div>
+      <div id="result">
+          {buffer ? buffer : result}
+      </div>
   )
 }
 
