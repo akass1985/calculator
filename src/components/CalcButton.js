@@ -4,12 +4,15 @@ import Col from 'react-bootstrap/Col'
 
 const CalcButton = ({title, action}) => {
   return (
-    <div class="justify-content-center">
-        <Col className="col p-1">
+    <div>
+        <Col>
             <Button 
-                onClick={action}
-                variant="primary">
-                {title}
+              style={{
+                "min-width": "100%"
+              }}
+              onClick={action}
+              variant="primary">
+              {title}
             </Button>
         </Col>
     </div>

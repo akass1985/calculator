@@ -31,6 +31,17 @@ const data = (state = initialValues, action) => {
     case ActionTypes.OPERATION: 
       switch (action.value){
 
+        case OperationTypes.DEL_LAST:
+          return {...state,
+            buffer: state.buffer.slice(0, state.buffer.length-1)}
+
+        case OperationTypes.AC:
+          return {...state,
+          result: 0,
+          log: [],
+          buffer: ""
+        };
+
         case OperationTypes.RESULT:
           return {...state, 
             result: parseFloat(state.result) + parseFloat(state.buffer),

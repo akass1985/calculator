@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux'
+import Container from 'react-bootstrap/Container'
 import selectResult, { selectBuffer } from '../selectors'
 
 const Display = () => {
@@ -9,9 +10,15 @@ const Display = () => {
   const output = buffer ? buffer : result;
   
   return (
-      <div style={{ "backgroun-color": "red"}} id="result">
+      <Container 
+        style={{ 
+          "text-align": "center",
+          // "backgroun-color": "red",
+          "border": "1px solid grey"
+          }} 
+        id="display">
           {output}
-      </div>
+      </Container>
   )
 }
 

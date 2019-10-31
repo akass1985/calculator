@@ -10,7 +10,7 @@ const NumPad = () => {
     const dispatch = useDispatch();
 
   return (
-    <Container>
+    <Container id="NumPad">
         <Row className="justify-content-center">
             <CalcButton title="AC" action={() => dispatch(operation("AC"))} />
             <CalcButton title="<-" action={() => dispatch(operation('<-'))} />

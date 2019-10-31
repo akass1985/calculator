@@ -6,6 +6,7 @@ import App from './components/App';
 import rootReducer from './reducers'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles.css'
 
 const initialValues = { 
         buffer: "0+",
