@@ -1,11 +1,14 @@
 import React from 'react';
+import { useDispatch } from 'react-redux'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
-import CalcButton from '../components/CalcButton'
-import { connect } from 'react-redux'
+import CalcButton from './CalcButton'
 import { op } from '../actions'
 
-const NumPad = ({dispatch}) => {
+const NumPad = () => {
+
+    const dispatch = useDispatch();
+
   return (
     <Container>
         <Row className="justify-content-center">
@@ -42,4 +45,4 @@ const NumPad = ({dispatch}) => {
   )
 }
 
-export default connect()(NumPad)
+export default NumPad;

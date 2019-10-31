@@ -1,7 +1,11 @@
 import React from 'react';
-import { connect } from 'react-redux'
+import { useSelector } from 'react-redux'
+import selectResult from '../selectors'
 
-const Display = ({value}) => {
+const Display = () => {
+
+  const value = useSelector(selectResult);
+  
   return (
         <div id="result">
             {value}
@@ -9,4 +13,4 @@ const Display = ({value}) => {
   )
 }
 
-export default connect()(Display)
+export default Display;

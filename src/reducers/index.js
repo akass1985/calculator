@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import operations from './operations'
+import result from './operations'
 
 export default combineReducers({
-  operations
+  result
 })
