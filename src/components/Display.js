@@ -22,7 +22,7 @@ const Display = () => {
       <Container id="display">
           <Row>
             <Col>
-            <input 
+            <input id="displayContent"
               style={{ backgroundColor: getColor(output) }} 
               value={output} />
             </Col>
