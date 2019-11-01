@@ -37,6 +37,7 @@ const Log = () => {
   const onDrop = (e) => {
     var log = document.getElementById("logContent");
     log.textContent = e.dataTransfer.getData("Text");
+    e.target.style.border = "1px solid grey";
   }
   const onDragOver = (e) =>  e.target.style.border = "3px solid red";
   const onDragLeave = (e) => e.target.style.border = "1px solid grey";
