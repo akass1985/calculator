@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import selectResult, { selectBuffer, selectLog } from '../selectors'
 import { hidden, redBright } from 'ansi-colors';
 import Container from 'react-bootstrap/Container'
-// import { ItemTypes } from './Constants'
+import { validate, preparate, calculate } from '../utils'
 
 const Log = () => {
 
@@ -15,42 +15,6 @@ const Log = () => {
   const scroll = () => {
     const textarea = document.getElementById('log');
     textarea.scrollTop = textarea.scrollHeight;
-  }
-
-  const preparation = line => {
-    while (line.match(/(--|\+=|\+-|-\+)/)){
-      while (line.match(/--/)) line = line.replace(/--/, '+');
-      alert(line);
-      line = line.replace(/\++/, '+');
-      alert(line);
-      line = line.replace(/\+-/, '-');
-      alert(line);
-      line = line.replace(/-\+/, '+');
-      alert(line);
-    }
-    return line;
-  }
-
-  const calculate = line => {
-    line = preparation(line);
-    const re = /([+-]?\d+[.]?\d*\s*[\+\-\*\/]+\s*[+-]?\d+[.]?\d*)/;
-    var result = line.replace(re, (str, p1, offset, s) => eval(p1) );
-    try {
-      do {
-        line = result;
-        result = line.replace(re, (str, p1, offset, s) => eval(p1) );
-        if (result.match(/Infinity/)) return 'Infinity';
-      } while ( result !== line);
-      return eval(result);
-    } catch (e){
-      return "Error"
-    }
-  }
-
-  const validate = line => {
-    if (line.match(/[^+*/0-9.-]/g)) return false;
-    if (!line.match(/\s*([+-]?\d+[.]?\d*\s*[\+\-\*\/]+\s*[+-]?\d+[.]?\d*)\s*/)) return false;
-    return true;
   }
 
   const onDrop = (e) => {
