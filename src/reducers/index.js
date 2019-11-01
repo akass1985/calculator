@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
 import ActionTypes, { OperationTypes } from '../actions'
+import { calculate } from '../utils';
 
 const initialValues = { 
   buffer: "", 
@@ -20,6 +21,11 @@ const calc = (operand1, operation, operand2) => {
 const data = (state = initialValues, action) => {
   
   switch(action.type){
+
+    case ActionTypes.BATCH:
+      return {...state,
+        result: calculate(action.value.replace(/\n/g, ""))
+      }
 
     case ActionTypes.DIGIT: 
       return {...state, 

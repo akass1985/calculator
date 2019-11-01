@@ -3,9 +3,13 @@ import { useSelector } from 'react-redux'
 import selectResult, { selectBuffer, selectLog } from '../selectors'
 import { hidden, redBright } from 'ansi-colors';
 import Container from 'react-bootstrap/Container'
-import { validate, preparate, calculate } from '../utils'
+import { validate, calculate } from '../utils'
+import { useDispatch } from 'react-redux'
+import ActionTypes, { batch } from '../actions';
 
 const Log = () => {
+
+  const dispatch = useDispatch();
 
   const result = useSelector(selectResult);
   const buffer = useSelector(selectBuffer);
@@ -25,9 +29,10 @@ const Log = () => {
     if (!validate(content.replace(/\n/g, ""))) {
       e.target.style.backgroundColor = "red";
     } else {
-      e.target.style.backgroundColor = "white";
-      var display = document.getElementById("displayContent");
-      display.value = calculate(content.replace(/\n/g, ""));
+      // e.target.style.backgroundColor = "white";
+      // var display = document.getElementById("displayContent");
+      // display.value = calculate(content.replace(/\n/g, ""));
+      dispatch(batch(content));
     }
   }
   

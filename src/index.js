@@ -8,6 +8,14 @@ import rootReducer from './reducers'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css'
 
+import {
+        isPushNotificationSupported,
+        askUserPermission,
+        registerServiceWorker,
+        createNotificationSubscription,
+        getUserSubscription
+      } from "./push-notifications";
+
 const store = createStore(
         rootReducer, 
         window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())

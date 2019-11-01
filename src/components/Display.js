@@ -12,10 +12,12 @@ const Display = () => {
   const output = buffer ? buffer : result;
 
   const getColor = val => {
-    if (val < 0) return "red";
-    if (val > 0) return "green";
-    if (val == 0) return "white";
-    if ((val - Math.floor(val)) != 0) return "yellow";
+    var color = "white";
+    if (val < 0) color = "red";
+    if (val > 0) color =  "green";
+    if (val == 0) color = "white";
+    if ((val - Math.floor(val)) != 0) color = "yellow";
+    return color;
   }
   
   return (
