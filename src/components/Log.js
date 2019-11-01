@@ -17,12 +17,18 @@ const Log = () => {
     textarea.scrollTop = textarea.scrollHeight;
   }
 
-  const validate = a => {
-    const arr = a.replace("\n", "");
-    try {
-      return eval(arr);
-    } catch (e){
-      return false;
+  const validate = text => {
+    const line = text.replace(/\n/g, "");
+    alert(eval(line));
+    const re = /[^0-9\+\-\*\/]/;
+    if (line.match(re)){
+      return null;
+    } else {
+      try {
+        return eval(line);
+      } catch (e){
+        return null;
+      }
     }
   }
 
