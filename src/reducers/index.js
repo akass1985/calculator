@@ -3,17 +3,16 @@ import ActionTypes, { OperationTypes } from '../actions'
 
 const initialValues = { 
   buffer: "", 
-  oprn: '+',
   log: [],
   result: 0
 }
 
 const calc = (operand1, operation, operand2) => {
   switch (operation){
-    case '+': return operand1 + operand2;
-    case '-': return operand1 - operand2;
-    case '*': return operand1 * operand2;
-    case '/': return (operand2 == 0) ? 'Infinity' : (operand1 / operand2);
+    case '+': return operand1 + operand2;break;
+    case '-': return operand1 - operand2;break;
+    case '*': return operand1 * operand2;break;
+    case '/': return (operand2 == 0) ? 'Infinity' : (operand1 / operand2);break;
     default: return 'NaN';
   }
 }
@@ -30,6 +29,13 @@ const data = (state = initialValues, action) => {
 
     case ActionTypes.OPERATION: 
       switch (action.value){
+
+        case OperationTypes.PERCENT:
+          return {...state,
+            result: calc(parseFloat(state.result), '*', parseFloat(state.buffer)/100),
+            buffer: "",
+            log: state.log.concat([state.buffer, action.value])
+          }
 
         case OperationTypes.DEL_LAST:
           return {...state,

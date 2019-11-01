@@ -4,7 +4,6 @@ import Col from 'react-bootstrap/Col'
 
 const CalcButton = ({title, action}) => {
   return (
-    <div>
         <Col>
             <Button 
               style={{
@@ -15,7 +14,6 @@ const CalcButton = ({title, action}) => {
               {title}
             </Button>
         </Col>
-    </div>
   )
 }
 

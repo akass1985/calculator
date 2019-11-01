@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux'
 import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 import selectResult, { selectBuffer } from '../selectors'
 
 const Display = () => {
@@ -8,16 +10,23 @@ const Display = () => {
   const result = useSelector(selectResult);
   const buffer = useSelector(selectBuffer);
   const output = buffer ? buffer : result;
+
+  const getColor = val => {
+    if (val < 0) return "red";
+    if (val > 0) return "green";
+    if (val == 0) return "white";
+    if ((val - Math.floor(val)) != 0) return "yellow";
+  }
   
   return (
-      <Container 
-        style={{ 
-          "text-align": "center",
-          // "backgroun-color": "red",
-          "border": "1px solid grey"
-          }} 
-        id="display">
-          {output}
+      <Container id="display">
+          <Row>
+            <Col>
+            <input 
+              style={{ backgroundColor: getColor(output) }} 
+              value={output} />
+            </Col>
+          </Row>
       </Container>
   )
 }

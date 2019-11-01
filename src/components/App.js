@@ -17,7 +17,7 @@ const App = () => {
             </Row>
             <Row>
                 <Col>
-	            <Display />
+	                <Display />
                 </Col>
             </Row>
             <Row>

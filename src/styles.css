@@ -1,4 +1,32 @@
 #app {
-    /* margin: auto 30%; */
+    margin-top: 0.5rem;
     padding: auto 10rem;
+}
+
+#display {
+    margin-top: 0.5rem;
+    min-width: 100%;
+}
+
+/* #display .col {
+    border: none;
+} */
+
+#display input {
+    min-width: 100%;
+    text-align: center;
+    border: 1px solid grey;
+}
+
+#NumPad {
+    margin-top: 0.5rem;
+}
+
+button {
+    margin: 0.1rem 0.1rem;
+    height: 3rem;
+}
+
+div {
+    border: none;
 }
