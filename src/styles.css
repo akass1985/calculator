@@ -26,3 +26,9 @@ button {
 div {
     border: none;
 }
+
+#log textarea {
+    text-align: center;
+    min-width: 100%;
+    min-height: "100%";
+}
