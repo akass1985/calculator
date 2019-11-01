@@ -17,30 +17,26 @@ const Log = () => {
     textarea.scrollTop = textarea.scrollHeight;
   }
 
-  const addDrop = (e) => {
-    // var e = e || window.event; // get window.event if e argument missing (in IE)   
-    if (e.preventDefault) { e.preventDefault(); } // stops the browser from redirecting off to the image.
-
-    var dt    = e.dataTransfer;
-    var files = dt.files;
-    for (var i=0; i<files.length; i++) {
-      var file = files[i];
-      var reader = new FileReader();
-        
-      //attach event handlers here...
-    
-      reader.readAsDataURL(file);
+  const validate = a => {
+    const arr = a.replace("\n", "");
+    try {
+      return eval(arr);
+    } catch (e){
+      return false;
     }
-    return false;
   }
 
   const onDrop = (e) => {
     var log = document.getElementById("logContent");
-    log.textContent = e.dataTransfer.getData("Text");
+    var content = e.dataTransfer.getData("Text");
+    log.textContent = content;
     e.target.style.border = "1px solid grey";
+    if (!validate(content)) {
+      e.target.style.backgroundColor = "red";
+    } else {
+      e.target.style.backgroundColor = "white";
+    }
   }
-  const onDragOver = (e) =>  e.target.style.border = "3px solid red";
-  const onDragLeave = (e) => e.target.style.border = "1px solid grey";
   
   return (
       <Container id="log">
@@ -52,8 +48,8 @@ const Log = () => {
               event.preventDefault();
             }) }
             onDrop={ e => onDrop(e) }
-            onDragOver={ e => onDragOver(e) }
-            onDragLeave={ e => onDragLeave(e) }
+            onDragOver={ e =>  e.target.style.border = "3px solid red" }
+            onDragLeave={ e => e.target.style.border = "1px solid grey" }
             style={{
                 
                 scrollToBottom: true, 
