@@ -8,16 +8,8 @@ import rootReducer from './reducers'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css'
 
-const initialValues = { 
-        buffer: "0+",
-        result: "0",
-        stack: false,
-        log: []
-};
-
 const store = createStore(
         rootReducer, 
-        // initialValues,
         window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 render(
